@@ -4,25 +4,27 @@ const PessoaController = require('../controllers/PessoaController');
 const router = Router();
 
 // CRUD Pessoas
-router.get('/pessoas', PessoaController.pegaTodasAsPessoas); // READ
-router.get('/pessoas/:id', PessoaController.pegaUmaPessoa); // READ
-router.post('/pessoas', PessoaController.criaPessoa); // CREATE
-router.put('/pessoas/:id', PessoaController.atualizaPessoa); // UPDATE
-router.delete('/pessoas/:id', PessoaController.apagaPessoa); // DELETE
+router
+  .get('/pessoas', PessoaController.pegaTodasAsPessoas) // READ
+  .get('/pessoas/:id', PessoaController.pegaUmaPessoa) // READ
+  .post('/pessoas', PessoaController.criaPessoa) // CREATE
+  .put('/pessoas/:id', PessoaController.atualizaPessoa) // UPDATE
+  .delete('/pessoas/:id', PessoaController.apagaPessoa) // DELETE
+  .post('/pessoas/:id/restaura', PessoaController.restauraPessoa)
 
-// CRUD Matriculas
-router.get(
-  '/pessoas/:estudanteId/matricula/:matriculaId',
-  PessoaController.pegaUmaMaticula
-); // READ
-router.post('/pessoas/:estudanteId/matricula', PessoaController.criaMatricula); // CREATE
-router.put(
-  '/pessoas/:estudanteId/matricula/:matriculaId',
-  PessoaController.atualizaMatricula
-); // UPDATE
-router.delete(
-  '/pessoas/:estudanteId/matricula/:matriculaId',
-  PessoaController.apagaMatricula
-); // DELETE
+  // CRUD Matriculas
+  .get(
+    '/pessoas/:estudanteId/matricula/:matriculaId',
+    PessoaController.pegaUmaMaticula
+  ) // READ
+  .post('/pessoas/:estudanteId/matricula', PessoaController.criaMatricula) // CREATE
+  .put(
+    '/pessoas/:estudanteId/matricula/:matriculaId',
+    PessoaController.atualizaMatricula
+  ) // UPDATE
+  .delete(
+    '/pessoas/:estudanteId/matricula/:matriculaId',
+    PessoaController.apagaMatricula
+  ); // DELETE
 
 module.exports = router;
