@@ -160,6 +160,21 @@ class PessoaController {
       return res.status(500).json(err.message);
     }
   }
+
+  static async pegaMatriculas(req, res) {
+    // GET uma matricula do banco
+    const { estudanteId } = req.params;
+
+    try {
+      const pessoa = await database.Pessoas.findOne({
+        where: { id: Number(estudanteId) },
+      });
+      const matriculas = await pessoa.getAulasMatriculadas();
+      return res.status(200).json(matriculas);
+    } catch (err) {
+      return res.status(500).json(err.message);
+    }
+  }
 }
 
 module.exports = PessoaController;
