@@ -5,7 +5,8 @@ const router = Router();
 
 // CRUD Pessoas
 router
-  .get('/pessoas', PessoaController.pegaTodasAsPessoas) // READ
+  .get('/pessoas', PessoaController.pegaPessoasAtivas) // READ
+  .get('/pessoas/todos', PessoaController.pegaTodasAsPessoas) // READ
   .get('/pessoas/:id', PessoaController.pegaUmaPessoa) // READ
   .post('/pessoas', PessoaController.criaPessoa) // CREATE
   .put('/pessoas/:id', PessoaController.atualizaPessoa) // UPDATE

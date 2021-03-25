@@ -30,6 +30,10 @@ module.exports = (sequelize, DataTypes) => {
       defaultScope: {
         where: { ativo: true },
       },
+      scopes: {
+        todos: { where: {} },
+        //etc: { contraint: valor }
+      },
       modelName: 'Pessoas',
     }
   );
