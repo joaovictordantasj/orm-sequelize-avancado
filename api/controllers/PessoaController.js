@@ -7,7 +7,7 @@ class PessoaController {
   static async pegaPessoasAtivas(req, res) {
     // READ todos os registros
     try {
-      const pessoasAtivas = await pessoasService.pegaTodosOsRegistros();
+      const pessoasAtivas = await pessoasService.pegaRegistrosAtivos();
       return res.status(200).json(pessoasAtivas);
     } catch (err) {
       return res.status(500).json(err.message);
@@ -17,7 +17,7 @@ class PessoaController {
   static async pegaTodasAsPessoas(req, res) {
     // READ todos os registros
     try {
-      const todasAsPessoas = await database.Pessoas.scope('todos').findAll();
+      const todasAsPessoas = await pessoasService.pegaTodosOsRegistros();
       return res.status(200).json(todasAsPessoas);
     } catch (err) {
       return res.status(500).json(err.message);

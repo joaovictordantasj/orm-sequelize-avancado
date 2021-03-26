@@ -5,8 +5,8 @@ const router = Router();
 
 // CRUD Pessoas
 router
-  .get('/pessoas', PessoaController.pegaPessoasAtivas) // READ
-  .get('/pessoas/todos', PessoaController.pegaTodasAsPessoas) // READ
+  .get('/pessoas', PessoaController.pegaTodasAsPessoas) // READ
+  .get('/pessoas/ativas', PessoaController.pegaPessoasAtivas) // READ
   .get('/pessoas/:id', PessoaController.pegaUmaPessoa) // READ
   .get('/pessoas/:estudanteId/matricula', PessoaController.pegaMatriculas)
 
