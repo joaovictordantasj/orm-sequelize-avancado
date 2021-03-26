@@ -20,6 +20,10 @@ router
     '/pessoas/:estudanteId/matricula/:matriculaId',
     PessoaController.pegaUmaMaticula
   ) // READ
+  .get(
+    '/pessoas/matricula/:turmaId/confirmadas',
+    PessoaController.pegaMatriculasPorTurma
+  )
   .post('/pessoas/:estudanteId/matricula', PessoaController.criaMatricula) // CREATE
   .put(
     '/pessoas/:estudanteId/matricula/:matriculaId',
