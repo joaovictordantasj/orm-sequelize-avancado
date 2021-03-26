@@ -1,7 +1,7 @@
 // const database = require('../models');
 // const Sequelize = require('sequelize');
-const Services = require('../services/Services');
-const pessoasService = new Services('Pessoas');
+const { PessoasServices } = require('../services');
+const pessoasService = new PessoasServices();
 
 class PessoaController {
   static async pegaPessoasAtivas(req, res) {
